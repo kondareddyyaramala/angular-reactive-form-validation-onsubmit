@@ -1,0 +1,23 @@
+<div class="app-component" style="margin-top: 2em;">
+	<form [formGroup]="form" class="form">
+		<div class="input-group">
+			<input
+          formControlName="email"
+          placeholder="Email">
+			<span *ngIf="email?.errors?.required">Please enter a value</span>
+      <span *ngIf="email?.errors?.maxlength">Exceed max length of 10</span>
+		</div>
+
+
+		<div class="input-group">
+			<input
+          formControlName="password"
+          placeholder="Password">
+			<span *ngIf="password?.errors?.required">Please enter a value</span>
+		</div>
+
+		<button type="submit">Submit</button>
+	</form>
+	<pre>{{form.value | json}}</pre>
+	<pre>isValid: {{form.valid}}</pre>
+</div>
